@@ -49,7 +49,7 @@ use yii\helpers\Html;
 							) ?>
 						</div>
 						<div class="col-sm-6 text-right">
-							<?= GhostHtml::a(
+							<?= Html::a(
 								UserManagementModule::t('front', "Forgot password ?"),
 								['/user-management/auth/password-recovery']
 							) ?>
