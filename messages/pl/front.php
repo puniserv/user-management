@@ -17,11 +17,11 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Continue' => 'Kontyntynuj',
+    'Continue' => 'Kontynuuj',
     'E-mail' => '',
     'Username' => 'Nazwa użytkownika',
     'Authorization' => 'Logowanie',
-    'Captcha' => 'Kod wizualny',
+    'Captcha' => 'Kod captcha',
     'Check your E-mail for further instructions' => 'Sprawdź swoją skrzynkę e-mail, gdzie zostały wysłane dalsze instrukcje',
     'Check your e-mail {email} for instructions to activate account' => 'Sprawdź swoją skrzynkę e-mail {email}, gdzie została wysłana instrukcja jak aktywować konto',
     'Confirm' => 'Potwierdź',
