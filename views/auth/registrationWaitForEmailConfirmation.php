@@ -1,23 +1,21 @@
 <?php
+
+use webvimark\modules\UserManagement\UserManagementModule;
+
 /**
- * @var $this yii\web\View
-* @var $user webvimark\modules\UserManagement\models\User
-*/
-use yii\helpers\Html;
+ * @var yii\web\View $this
+ * @var webvimark\modules\UserManagement\models\User $user
+ */
 
+$this->title = UserManagementModule::t('front', 'Registration - confirm your e-mail');
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<?php
-$returnUrl = Yii::$app->user->returnUrl == Yii::$app->homeUrl ? null : rtrim(Yii::$app->homeUrl, '/') . Yii::$app->user->returnUrl;
+<div class="registration-wait-for-confirmation">
 
-$confirmLink = Yii::$app->urlManager->createAbsoluteUrl(['/user-management/auth/confirm-registration-email', 'token' => $user->confirmation_token, 'returnUrl'=>$returnUrl]);
+	<div class="alert alert-info text-center">
+		<?= UserManagementModule::t('front', 'Check your e-mail {email} for instructions to activate account', [
+			'email'=>'<b>'. $user->email .'</b>'
+		]) ?>
+	</div>
 
-$website = Yii::$app->urlManager->hostInfo;
-?>
-
-<?= UserManagementModule::t('front', 'Hello, you have been registered on {website}', ['website' => $website]) ?>
-
-<br/><br/>
-<?= UserManagementModule::t('front', 'Follow this link to confirm your E-mail and activate account:') ?>
-
-
-<?= Html::a(UserManagementModule::t('front', 'Confirm E-mail'), $confirmLink) ?>
+</div>
