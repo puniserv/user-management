@@ -1,15 +1,18 @@
 <?php
 /**
  * @var $this yii\web\View
- * @var $user webvimark\modules\UserManagement\models\User
- */
+* @var $user webvimark\modules\UserManagement\models\User
+*/
+
 use yii\helpers\Html;
+use webvimark\modules\UserManagement\UserManagementModule;
+
+$resetLink = Yii::$app->urlManager->createAbsoluteUrl(['/user-management/auth/password-recovery-receive', 'token' => $user->confirmation_token ]);
+$username = Html::encode($user->username);
 
 ?>
-<?php
-$resetLink = Yii::$app->urlManager->createAbsoluteUrl(['/user-management/auth/password-recovery-receive', 'token' => $user->confirmation_token]);
-?>
 
-Hello <?= Html::encode($user->username) ?>, follow this link to reset your password:
+<?= UserManagementModule::t('front', 'Hello {username}, follow this link to reset your password:', ['username' => $username]) ?>
 
-<?= Html::a('Reset password', $resetLink) ?>
+
+<?= Html::a(UserManagementModule::t('front', 'Reset password'), $resetLink) ?>

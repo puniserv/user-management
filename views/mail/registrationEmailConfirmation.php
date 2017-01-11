@@ -1,8 +1,8 @@
 <?php
 /**
  * @var $this yii\web\View
- * @var $user webvimark\modules\UserManagement\models\User
- */
+* @var $user webvimark\modules\UserManagement\models\User
+*/
 use yii\helpers\Html;
 
 ?>
@@ -10,11 +10,14 @@ use yii\helpers\Html;
 $returnUrl = Yii::$app->user->returnUrl == Yii::$app->homeUrl ? null : rtrim(Yii::$app->homeUrl, '/') . Yii::$app->user->returnUrl;
 
 $confirmLink = Yii::$app->urlManager->createAbsoluteUrl(['/user-management/auth/confirm-registration-email', 'token' => $user->confirmation_token, 'returnUrl'=>$returnUrl]);
+
+$website = Yii::$app->urlManager->hostInfo;
 ?>
 
-Hello, you have been registered on <?= Yii::$app->urlManager->hostInfo ?>
+<?= UserManagementModule::t('front', 'Hello, you have been registered on {website}', ['website' => $website]) ?>
 
 <br/><br/>
-Follow this link to confirm your E-mail and activate account:
+<?= UserManagementModule::t('front', 'Follow this link to confirm your E-mail and activate account:') ?>
 
-<?= Html::a('confirm E-mail', $confirmLink) ?>
+
+<?= Html::a(UserManagementModule::t('front', 'Confirm E-mail'), $confirmLink) ?>
