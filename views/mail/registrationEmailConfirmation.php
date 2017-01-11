@@ -4,6 +4,7 @@
 * @var $user webvimark\modules\UserManagement\models\User
 */
 use yii\helpers\Html;
+use webvimark\modules\UserManagement\UserManagementModule;
 
 ?>
 <?php
