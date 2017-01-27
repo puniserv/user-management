@@ -32,7 +32,7 @@ class LoginForm extends Model
 	public function attributeLabels()
 	{
 		return [
-			'username'   => UserManagementModule::t('front', 'Username'),
+			'username'        => Yii::$app->getModule('user-management')->useEmailAsLogin ? 'E-mail' : UserManagementModule::t('front', 'Login'),
 			'password'   => UserManagementModule::t('front', 'Password'),
 			'rememberMe' => UserManagementModule::t('front', 'Remember me'),
 		];
