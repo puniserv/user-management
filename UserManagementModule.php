@@ -43,7 +43,7 @@ class UserManagementModule extends \yii\base\Module
 	 * @var array
 	 */
 	protected $_defaultMailerOptions = [
-		'from'=>'', // If empty it will be - [Yii::$app->params['adminEmail'] => Yii::$app->name . ' robot']
+		'from'=>'', // If empty it will be - [Yii::$app->params['adminEmail'] => Yii::$app->name]
 
 		'registrationFormViewFile'     => '/mail/registrationEmailConfirmation',
 		'passwordRecoveryFormViewFile' => '/mail/passwordRecoveryMail',
@@ -283,7 +283,7 @@ class UserManagementModule extends \yii\base\Module
 	{
 		if ( !isset($this->mailerOptions['from']) )
 		{
-			$this->mailerOptions['from'] = [Yii::$app->params['adminEmail'] => Yii::$app->name . ' robot'];
+			$this->mailerOptions['from'] = [Yii::$app->params['adminEmail'] => Yii::$app->name];
 		}
 
 		$this->mailerOptions = ArrayHelper::merge($this->_defaultMailerOptions, $this->mailerOptions);
