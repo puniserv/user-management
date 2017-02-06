@@ -61,6 +61,15 @@ use yii\helpers\Html;
 
 					<?php ActiveForm::end() ?>
 				</div>
+				<div class="panel-body">
+				<?= yii\authclient\widgets\AuthChoice::widget([
+					 'baseAuthUrl' => ['/site/auth/'],
+					 'id' => 'facebook-login',
+					// 'options' =>[
+					//		'class' => 'test',	
+					// ],
+				]) ?>			
+				</div>
 			</div>
 		</div>
 	</div>
