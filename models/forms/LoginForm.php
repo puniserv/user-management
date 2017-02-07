@@ -21,20 +21,20 @@ class LoginForm extends Model
 	public function rules()
 	{
 		return [
-			[['username', 'password'], 'required'],
-			['rememberMe', 'boolean'],
-			['password', 'validatePassword'],
+				[['username', 'password'], 'required'],
+				['rememberMe', 'boolean'],
+				['password', 'validatePassword'],
 
-			['username', 'validateIP'],
+				['username', 'validateIP'],
 		];
 	}
 
 	public function attributeLabels()
 	{
 		return [
-			'username'        => Yii::$app->getModule('user-management')->useEmailAsLogin ? 'E-mail' : UserManagementModule::t('front', 'Login'),
-			'password'   => UserManagementModule::t('front', 'Password'),
-			'rememberMe' => UserManagementModule::t('front', 'Remember me'),
+				'username'        => Yii::$app->getModule('user-management')->useEmailAsLogin ? 'E-mail' : UserManagementModule::t('front', 'Login'),
+				'password'   => UserManagementModule::t('front', 'Password'),
+				'rememberMe' => UserManagementModule::t('front', 'Remember me'),
 		];
 	}
 
@@ -54,9 +54,18 @@ class LoginForm extends Model
 		if ( !$this->hasErrors() )
 		{
 			$user = $this->getUser();
-			if ( !$user || !$user->validatePassword($this->password) )
+			if ( !$user )
 			{
 				$this->addError('password', UserManagementModule::t('front', 'Incorrect username or password.'));
+			}
+			try {
+				$user->validatePassword($this->password);
+			} catch (\yii\base\InvalidParamException $ex){
+				if ($user->isNonPasswordLogin()){
+					$this->addError('password', UserManagementModule::t('front', 'Choose alternative login method or use password recovery to set account password'));
+				} else {
+					$this->addError('password', UserManagementModule::t('front', 'Incorrect username or password.'));
+				}
 			}
 		}
 	}

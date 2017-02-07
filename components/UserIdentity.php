@@ -183,4 +183,14 @@ abstract class UserIdentity extends ActiveRecord implements IdentityInterface
 	{
 		$this->confirmation_token = null;
 	}
+
+	public function isNonPasswordLogin(){
+		return Auth::find()->where(['user_id' => $this->id])->exists();
+	}
+
+	public function getOrigin(){
+		$auth = Auth::find()->where(['user_id' => $this->id])->one();
+		if ($auth == null) return null;
+		else return $auth->source;
+	}
 }

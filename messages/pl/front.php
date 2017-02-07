@@ -49,6 +49,7 @@ return [
 		'Too many attempts' => 'Zbyt wiele prób',
 		'Unable to send message for email provided' => 'Nie udało się wysłać wiadomości na podany adres e-mail',
 		'You could not login from this IP' => 'Nie możesz się zalogować z tego IP',
+		'Choose alternative login method or use password recovery to set account password' => 'Wybierz inną metodę logowania lub użyj opcji odzyskiwania hasła aby przypisać je do konta',
 
 		// emails:
 		'Hello {username}, follow this link to reset your password:' => 'Witaj {username}, kliknij poniższy link aby zresetować swoje hasło:',
