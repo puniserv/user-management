@@ -57,14 +57,15 @@ class LoginForm extends Model
 			if ( !$user )
 			{
 				$this->addError('password', UserManagementModule::t('front', 'Incorrect username or password.'));
-			}
-			try {
-				$user->validatePassword($this->password);
-			} catch (\yii\base\InvalidParamException $ex){
-				if ($user->isNonPasswordLogin()){
-					$this->addError('password', UserManagementModule::t('front', 'Choose alternative login method or use password recovery to set account password'));
-				} else {
-					$this->addError('password', UserManagementModule::t('front', 'Incorrect username or password.'));
+			} else {
+				try {
+					$user->validatePassword($this->password);
+				} catch (\yii\base\InvalidParamException $ex){
+					if ($user->isNonPasswordLogin()){
+						$this->addError('password', UserManagementModule::t('front', 'Choose alternative login method or use password recovery to set account password'));
+					} else {
+						$this->addError('password', UserManagementModule::t('front', 'Incorrect username or password.'));
+					}
 				}
 			}
 		}
