@@ -91,7 +91,15 @@ class AuthController extends BaseController
 			throw new ForbiddenHttpException();
 		}
 
-		$model = new ChangeOwnPasswordForm(['user'=>$user]);
+		
+		if (empty($user->password_hash)){
+			$model = new ChangeOwnPasswordForm([
+					'scenario'=>'restoreViaEmail',
+					'user'=>$user,
+			]);
+		} else {
+			$model = new ChangeOwnPasswordForm(['user'=>$user]);
+		}
 
 
 		if ( Yii::$app->request->isAjax AND $model->load(Yii::$app->request->post()) )
