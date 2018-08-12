@@ -30,7 +30,7 @@ return [
     'E-mail confirmation for' => 'Potwierdzenie e-maila dla',
     'E-mail confirmed' => 'Adres e-mail potwierdzony',
     'E-mail is invalid' => 'Nieprawidłowy adres e-mail',
-    'Forgot password ?' => 'Zapomniałeś hasło?',
+    'Forgot password ?' => 'Zapomniałeś hasła?',
     'Incorrect username or password.' => 'Nieprawidłowy login lub hasło',
     'Login' => 'Zaloguj',
     'Login has been taken' => 'Login jest już zajęty',
