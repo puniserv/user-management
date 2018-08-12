@@ -49,7 +49,7 @@ use yii\helpers\Html;
 							) ?>
 						</div>
 						<div class="col-sm-6 text-right">
-							<?= GhostHtml::a(
+							<?= Html::a(
 								UserManagementModule::t('front', "Forgot password ?"),
 								['/user-management/auth/password-recovery']
 							) ?>
@@ -60,6 +60,15 @@ use yii\helpers\Html;
 
 
 					<?php ActiveForm::end() ?>
+				</div>
+				<div class="panel-body">
+				<?= yii\authclient\widgets\AuthChoice::widget([
+					 'baseAuthUrl' => ['/site/auth/'],
+					 'id' => 'facebook-login',
+					// 'options' =>[
+					//		'class' => 'test',	
+					// ],
+				]) ?>			
 				</div>
 			</div>
 		</div>
