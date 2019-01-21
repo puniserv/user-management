@@ -45,7 +45,7 @@ class AuthController extends BaseController
 			return $this->goHome();
 		}
 
-		$model = new LoginForm();
+		$model = new $this->module->loginFormClass();
 
 		if ( Yii::$app->request->isAjax AND $model->load(Yii::$app->request->post()) )
 		{

@@ -2,6 +2,7 @@
 
 namespace webvimark\modules\UserManagement;
 
+use webvimark\modules\UserManagement\models\forms\LoginForm;
 use Yii;
 use yii\helpers\ArrayHelper;
 
@@ -70,6 +71,7 @@ class UserManagementModule extends \yii\base\Module
 	 */
 	public $registrationFormClass = 'webvimark\modules\UserManagement\models\forms\RegistrationForm';
 
+    public $loginFormClass = LoginForm::class;
 	/**
 	 * After how many seconds confirmation token will be invalid
 	 *
